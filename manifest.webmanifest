@@ -1,0 +1,20 @@
+{
+  "id": "./?app=synapz-v2",
+  "name": "SYNAPZ Hockey V2 — Universal Hockey IQ Studio",
+  "short_name": "SYNAPZ V2",
+  "description": "Off-Ice Hockey IQ Training Game & Tactical Coaching Studio across PC, Tablet, and Phone.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#060b14",
+  "theme_color": "#0d1626",
+  "icons": [
+    {
+      "src": "./synapz-v2-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
