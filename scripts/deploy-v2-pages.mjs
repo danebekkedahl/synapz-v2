@@ -119,8 +119,9 @@ function resolveGithubTokenInMemory() {
   const credProbe = spawnSync(GIT_BIN, ['credential', 'fill'], {
     input: 'protocol=https\nhost=github.com\n\n',
     encoding: 'utf8',
+    timeout: 4000,
     stdio: ['pipe', 'pipe', 'pipe'],
-    env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
+    env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GCM_INTERACTIVE: 'never' },
   });
   if (credProbe.status === 0 && credProbe.stdout) {
     const pwMatch = credProbe.stdout.match(/^password=(.+)$/m);
