@@ -1,0 +1,313 @@
+/* 16-Pillar IQ Radar Dashboard */
+.iq-dashboard-stage {
+  flex: 1;
+  min-height: 0;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.iq-hero-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.iq-stat-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-kicker {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.stat-big {
+  font-size: 1.32rem;
+  color: var(--cyan-ice);
+}
+
+.stat-sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.iq-main-grid {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.radar-card,
+.saturday-habit-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.radar-svg {
+  width: 100%;
+  max-height: 280px;
+}
+
+.pillar-detail-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--cyan-ice);
+}
+
+.saturday-habit-card h3 {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.habit-cue {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.habit-ice-box {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 3px solid var(--gold-accent);
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 0.84rem;
+}
+
+.habit-ice-box p {
+  margin: 4px 0 0;
+}
+
+.pillars-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+}
+
+.pillar-chip {
+  justify-content: space-between;
+  font-size: 0.76rem;
+  padding: 0 10px;
+}
+
+/* Playtest Notes Modal Drawer */
+.notes-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 11, 20, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  z-index: 80;
+}
+
+.notes-drawer-card {
+  width: 100%;
+  max-width: 520px;
+  max-height: 88dvh;
+  overflow-y: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--cyan-ice);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notes-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notes-device-sub {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.notes-tag-row,
+.notes-action-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.notes-textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-arena);
+  color: var(--text-main);
+  padding: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.notes-saved-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+.notes-saved-list li {
+  background: var(--bg-elevated);
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.note-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--cyan-ice);
+  background: rgba(56, 189, 248, 0.16);
+  padding: 2px 6px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+/* Portrait Tablets (e.g. 800x1280, 820x1180) & All Phones (< 768px): Bottom 5-Icon Dock */
+@media (max-width: 767px), ((max-width: 1099px) and (orientation: portrait)) {
+  .arena-body {
+    flex-direction: column-reverse;
+  }
+
+  .tablet-rail {
+    flex-direction: row;
+    width: 100%;
+    padding: 4px max(4px, env(safe-area-inset-right)) max(4px, env(safe-area-inset-bottom))
+      max(4px, env(safe-area-inset-left));
+    gap: 4px;
+    border-right: none;
+    border-top: 1px solid var(--border-subtle);
+    justify-content: space-around;
+  }
+
+  .rail-item {
+    flex: 1;
+    min-width: 50px;
+    min-height: 52px;
+    padding: 2px;
+    font-size: 0.68rem;
+  }
+
+  .iq-hero-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .iq-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Compact Phone Header (< 880px width) */
+@media (max-width: 880px) {
+  .desktop-profile-controls,
+  .iq-tier-sub,
+  .streak-flame,
+  .redeem-dot,
+  .hide-xs,
+  .gesture-tag {
+    display: none;
+  }
+
+  .mobile-profile-trigger {
+    display: inline-flex;
+  }
+
+  .touch-btn {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 10px;
+  }
+
+  .giant-drop-btn {
+    min-height: 54px;
+  }
+}
+
+/* Narrow Smartphones (<= 480px, e.g. Pixel 412px & iPhone 390px) */
+@media (max-width: 480px) {
+  .top-command-bar {
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
+    gap: 6px;
+  }
+
+  .brand-badge {
+    font-size: 0.86rem;
+  }
+
+  .brand-v2 {
+    display: none;
+  }
+
+  .iq-score-pill {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+
+  .header-actions .touch-btn {
+    padding: 0 8px;
+  }
+}
+
+/* Phone Landscape (e.g. 844x390 / 915x412) */
+@media (max-height: 500px) and (max-width: 960px) {
+  .top-command-bar {
+    min-height: 48px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .telestrator-caption-bar {
+    display: none;
+  }
+
+  .hub-card {
+    padding: 12px 16px;
+  }
+
+  .hub-card p {
+    margin-bottom: 10px;
+    font-size: 0.84rem;
+  }
+}
